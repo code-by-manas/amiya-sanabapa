@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital@1&display=swap');
+
+/* Resetting padding and margin for all elements, and setting the font family */
+* {
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+    font-family: 'Bodoni Moda', serif; /* Sets the font for the entire document */
+}
+
+/* Styling for the body of the document */
+body {
+    height: 100vh; /* Sets the height of the body to 100% of the viewport height */
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://cdn.pixabay.com/animation/2022/10/10/02/39/02-39-55-927_512.gif); /* Applies a gradient overlay and background image */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    background-size: cover; /* Adjusted background size */
+}
+
+/* Container for the 3D effect */
+.container {
+    perspective: 1000px; /* Sets the perspective for the child elements to create a 3D effect */
+}
+
+/* Styling for the card */
+.card {
+    width: 280px; /* Sets the width of the card */
+    height: 360px; /* Sets the height of the card */
+    position: absolute; /* Positions the card absolutely within the container */
+    top: 100px; /* Sets the distance from the top of the container */
+    left: 230px; /* Sets the distance from the left of the container */
+    transition: 2s; /* Sets the duration of the transition effect for rotations */
+    transform-style: preserve-3d; /* Allows child elements to retain their 3D position */
+}
+
+/* Class for the flipped state of the card */
+.card.flipped {
+    transform: rotateY(180deg); /* Rotates the card on the Y-axis when flipped */
+}
+
+/* Container for additional frames */
+.block {
+    position: absolute; /* Positions the block absolutely within the container */
+    top: 200px; /* Sets the distance from the top of the container */
+    right: 600px; /* Sets the distance from the right of the container */
+    perspective: 800px; /* Sets perspective for child frames */
+}
+
+/* Common styles for the outside and inside of the card */
+.outside, .inside {
+    width: 100%; /* Sets width to 100% of the card */
+    height: 100%; /* Sets height to 100% of the card */
+    border-radius: 20px; /* Rounds the corners of the card */
+    text-align: center; /* Centers the text inside the card */
+    padding: 1.5rem; /* Adds padding inside the card */
+}
+
+/* Styling for the outside of the card */
+.outside {
+    background-color: black; /* Changed background color for the outside to black */
+    box-shadow: inset 0 5px 10px rgba(255,255,255,0.5); /* Adds an inner shadow for depth */
+    position: absolute; /* Positions outside section absolutely within the card */
+    backface-visibility: hidden; /* Hides the back face of the element when flipped */
+}
+
+/* Styling for the main heading in the outside section */
+.outside h1 {
+    font-size: 3rem; /* Sets the font size of the heading */
+    font-weight: bold; /* Makes the text bold */
+    color: salmon; /* Sets the text color */
+    margin-bottom: 30px; /* Adds space below the heading */
+}
+
+/* Styling for the inside of the card */
+.inside {
+    background-color: black; /* Changed background color for the inside to black */
+    box-shadow: inset 0 5px 10px rgba(255,255,255,0.5); /* Adds an inner shadow for depth */
+    transform: rotateY(180deg); /* Rotates the inside section so it’s initially hidden */
+}
+
+/* Styling for the main heading in the inside section */
+.inside h3 {
+    font-size: 1.2rem; /* Sets the font size of the heading */
+    font-weight: bold; /* Makes the text bold */
+    margin-top: 20px; /* Adds space above the heading */
+    color: white; /* Sets text color to white for contrast against black background */
+}
+
+/* Common styles for each frame */
+.frames {
+    width: 400px; /* Sets width for each frame */
+    height: 150px; /* Sets height for each frame */
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.5); /* Adds a shadow for depth */
+    display: flex; /* Enables flexbox layout */
+    align-items: center; /* Vertically centers items */
+    justify-content: space-around; /* Distributes items evenly with space around */
+    padding: 0 0.8rem; /* Adds horizontal padding */
+    transform: rotateY(-230deg) rotateX(20deg); /* Applies rotation for a 3D effect */
+    position: absolute; /* Positions each frame absolutely within the block */
+    background-color: black; /* Sets background color to black for all frames */
+}
+
+/* Styling for images within frames */
+.frames img {
+    width: 125px; /* Sets width for the images */
+    height: 125px; /* Sets height for the images */
+    border-radius: 50%; /* Makes images circular */
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5); /* Adds shadow for depth */
+}
+
+/* Styling for text in frames */
+.frames p {
+    font-size: 20px; /* Sets font size for the text */
+    font-weight: bold; /* Makes the text bold */
+    transform: rotateY(180deg); /* Flips the text so it’s readable in 3D view */
+    color: white; /* Sets text color to white for contrast against black background */
+}
+
+/* Specific styles for the first frame */
+.frames:nth-child(1) {
+    top: -110px; /* Adjusts position for the first frame */
+    z-index: -1; /* Sends it behind other frames */
+}
+
+/* Specific styles for the second frame */
+.frames:nth-child(2) {
+    /* No additional styles needed, black background applies here */
+}
+
+/* Specific styles for the third frame */
+.frames:nth-child(3) {
+    top: 100px; /* Adjusts position for the third frame */
+}
+
+/* Styling for the "Touch It" message */
+.touch-message {
+    font-size: 1.5rem; /* Sets font size for the message */
+    font-weight: bold; /* Makes the text bold */
+    color: darkblue; /* Sets text color */
+    margin-top: 20px; /* Adds space above the message */
+}
+
+/* Styling for the birthday message */
+.birthday-message {
+    position: absolute; /* Allows precise positioning */
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    left: 50%; /* Centers the message horizontally */
+    transform: translateX(-50%); /* Adjusts position to truly center it */
+    text-align: center; /* Centers text within the div */
+    color: white; /* Sets text color to white for visibility */
+    font-size: 1.5rem; /* Sets font size */
+    font-weight: bold; /* Makes the text bold */
+    padding: 1rem; /* Adds padding around the text */
+}
